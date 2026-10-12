@@ -1,0 +1,11 @@
+.git/
+node_modules/
+dist/
+.env
+.env.*
+.vercel/
+reference/
+evidence/
+submission.md
+work-status.md
+*.log
