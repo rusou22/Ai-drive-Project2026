@@ -1,0 +1,25 @@
+{
+  "name": "ai-drive-project2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "授業用 Express + TypeScript + EJS サイト",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "tsx watch ./index.ts",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "ejs": "^7.0.1",
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.19.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}
