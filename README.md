@@ -2,6 +2,12 @@
 
 授業用の Express + TypeScript + EJS サイトです。
 
+## 公開サイト
+
+https://ai-drive-project2026-flax.vercel.app/
+
+「クリック」ボタンを押すと「JavaScriptが動作しました！」と表示されます。
+
 ## 使用技術
 
 Node.js 24、Express、TypeScript、EJS、HTML / CSS / JavaScript、Vercel Hobby
