@@ -37,3 +37,13 @@ Vercel でこの GitHub リポジトリをインポートします。Root Direct
 変更をローカルで確認し、コミットして main にプッシュすると、Vercel が自動デプロイします。
 
 `node_modules`、`dist`、`.env`、ローカルの作業記録は Git の管理対象から除外しています。
+
+## ファイル構成
+
+- `index.ts`：Express の設定と TOP ページのルーティング
+- `views/index.ejs`：TOP ページの HTML
+- `public/css/style.css`：ページの見た目
+- `public/js/script.js`：ボタンクリック時のメッセージ表示
+- `tsconfig.json`：TypeScript のビルド設定
+
+公開後は TOP ページの表示、CSS の適用、ボタンのメッセージ表示を確認します。
