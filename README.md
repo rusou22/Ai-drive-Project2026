@@ -52,9 +52,10 @@ Vercelでは同じNeonブランチ・DBのプール接続URLを使用します�
 
 ## ファイル構成
 
-- `index.ts`：Express の設定と TOP ページのルーティング
+- `index.ts`：Express の設定、TOP・接続確認API・商品一覧のルーティング
 - `db.ts`：Neonへの接続プール（最大2接続）
 - `views/index.ejs`：TOP ページの HTML
+- `views/db-sample.ejs`：商品一覧の HTML（EJSのエスケープ付き出力）
 - `public/css/style.css`：ページの見た目
 - `public/js/script.js`：ボタンクリック時のメッセージ表示
 - `tsconfig.json`：TypeScript のビルド設定
@@ -75,3 +76,12 @@ NeonのSQL Editorで手動実行し、[SQLの実行記録](sql/README.md)に結�
 機能ブランチをpushするとPreviewが作成されます。Previewの `/` と `/api/db-check` を確認してから、Pull Requestをmainへマージします。
 mainのProduction DeploymentがReadyになった後、本番でも確認します。
 PreviewとProductionは別URL・別のコードですが、今回の `DATABASE_URL` は同じNeonブランチ・DBを指すため、DBデータは共有します。
+
+## 商品一覧
+
+`GET /db-sample` はNeonの `products` テーブルを読み取り、ノート（200円）・ペン（120円）・消しゴム（80円）を表示します。トップページのリンクから開けます。
+取得失敗時はHTTP 503を返します。商品名はEJSの `<%=` でHTMLエスケープして表示します。
+
+`sql/010_setup_sample_products.sql` は授業用の商品テーブルを作成し、商品3件を登録するSQLです。SQL Editorで手動実行します。GitHubへの保存やPRのマージは、DBへのSQL実行とは別の操作です。
+
+第2回授業のURL・確認結果・エラーと解決方法・提出課題3問への回答は、[確認記録・提出課題](docs/lesson-02.md)にまとめています。

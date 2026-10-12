@@ -30,6 +30,20 @@ app.get('/api/db-check', async (_req: Request, res: Response): Promise<void> => 
   }
 });
 
+type Product = { id: number; name: string; price: number };
+
+app.get('/db-sample', async (_req: Request, res: Response): Promise<void> => {
+  try {
+    const result = await pool.query<Product>(
+      'SELECT id, name, price FROM products ORDER BY id'
+    );
+    res.render('db-sample', { products: result.rows });
+  } catch (error) {
+    logDatabaseError('商品一覧の取得に失敗しました', error);
+    res.status(503).send('商品一覧を表示できません');
+  }
+});
+
 app.listen(port, (): void => {
   console.log(`Server started: http://localhost:${port}`);
 });
