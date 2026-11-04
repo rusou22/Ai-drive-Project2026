@@ -31,3 +31,7 @@ SQLファイルをGitHubへ保存したり、Vercelへデプロイしたりし�
 | 4 | 2026-10-12 22:00 | `010_setup_sample_products.sql` | CREATE成功、INSERT 3、SELECT 3。ノート200円、ペン120円、消しゴム80円を確認 |
 
 商品データは順序4の実行時点で共有DBに反映済みです。商品一覧のPRをマージした時点で作られたものではありません。
+
+## TODO V1（第3回）
+
+2026-11-04、webapp-class / production / neondb で実行。事前に public.todo_tasks が存在しないことを確認した。Neon SQL Editor で [020_create_todo_tasks.sql](todo/020_create_todo_tasks.sql) を手動実行し、CREATE 成功、続く SELECT と初回の一覧APIで0件を確認した。既存の商品テーブルは変更していない。
