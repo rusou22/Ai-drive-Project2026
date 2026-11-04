@@ -85,3 +85,9 @@ PreviewとProductionは別URL・別のコードですが、今回の `DATABASE_U
 `sql/010_setup_sample_products.sql` は授業用の商品テーブルを作成し、商品3件を登録するSQLです。SQL Editorで手動実行します。GitHubへの保存やPRのマージは、DBへのSQL実行とは別の操作です。
 
 第2回授業のURL・確認結果・エラーと解決方法・提出課題3問への回答は、[確認記録・提出課題](docs/lesson-02.md)にまとめています。
+
+## TODOアプリ V1
+
+[TODOリストを開く](https://ai-drive-project2026-flax.vercel.app/todo)。授業用の共有リストに架空のタスクを追加し、完了を切り替えたり削除したりできます。認証はありません。画面は Fetch で `/api/v1/todos` を利用します。
+
+[要件定義](docs/todo/01_requirements.md) · [設計](docs/todo/02_design.md) · [実装手順](docs/todo/03_implementation_plan.md) · [環境別のテスト結果](docs/todo/04_test_results.md) · [DB作成SQL](sql/todo/020_create_todo_tasks.sql)

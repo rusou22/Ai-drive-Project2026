@@ -1,14 +1,17 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
 import { pool, logDatabaseError } from './db';
+import { todoRouter } from './src/apps/todo/todoRouter';
 
 const app = express();
 const port: number = Number(process.env.PORT) || 3000;
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(process.cwd(), 'public')));
+app.use(express.static(path.join(process.cwd(), 'public'), { redirect: false }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(process.cwd(), 'views'));
+app.get('/todo', (_req, res) => { res.render('todo/index'); });
+app.use('/api/v1/todos', todoRouter);
 
 app.get('/', (_req: Request, res: Response): void => {
   res.render('index');
