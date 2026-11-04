@@ -1,6 +1,6 @@
 # TODO V1 実装手順書
 
-作業場所は既存リポジトリ。Node.js 24・Express 5・TypeScript・EJS・pgを使用し、追加のランタイム依存は不要。最初に `git status -sb` と `git remote -v` で、自分のリポジトリの `feature/todo` にいることを確認する。設計3文書を先にコミット・pushする。
+作業場所は既存リポジトリ。Node.js 24・Express 5・TypeScript・EJS・pgを使用し、追加のランタイム依存は不要。最初に `git status -sb` と `git remote -v` で、自分のリポジトリの `feature/todo` にいることを確認する。設計3文書を先にコミット・pushする。そのコミットから実装用の `feature/todo-app` を作成する。
 
 | 順 | 対象・作業 | 確認方法と期待結果 | 失敗時の確認先 |
 | --- | --- | --- | --- |
@@ -12,8 +12,8 @@
 | 6 | REQ-04 ID条件付きDELETE | 作成したIDを削除し204・本文なし。再削除404 | rowCount、204の処理 |
 | 7 | public/todo/todo.jsのTodoApi・views/todo/index.ejs | /todoで追加→完了→削除。Networkと表示が一致、空表示を確認 | fetchのURL・JSON・204分岐 |
 | 8 | ローカルのビルド済みアプリ | npm run build → npm start。異常系と既存 /、/api/db-check、/db-sample も確認 | dist・views・publicの配置 |
-| 9 | 自分のfeature/todoをpush | Preview Ready後、同じCRUD・異常系・画面を検証 | ソースブランチ、Vercel環境変数、ログ |
-| 10 | feature/todo → main のPR | 差分に秘密情報がないこと、試験結果・Preview URLを確認しマージ | 差分、必須試験の失敗 |
+| 9 | 自分のfeature/todo-appをpush | Preview Ready後、同じCRUD・異常系・画面を検証 | ソースブランチ、Vercel環境変数、ログ |
+| 10 | feature/todo-app → main のPR | 差分に秘密情報がないこと、試験結果・Preview URLを確認しマージ | 差分、必須試験の失敗 |
 | 11 | Production Ready後に再試験 | 本番URLで同じ試験を行い、docs/todo/04_test_results.mdにURL・日時・結果・失敗と対処を記録 | mainのコミット・デプロイ・接続先 |
 
 共有DBを初期化しない。環境ごとに別の架空タイトルを用い、返されたIDだけを更新・削除する。0件でない場合は既存件数と未実施理由を記録する。DB障害はローカルの隔離したプロセスで再現し、公開環境の接続設定は変更しない。
